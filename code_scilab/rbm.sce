@@ -51,9 +51,38 @@ function states = findHidden(user_input, num_hidden, weights)
 
     // Decyzja czy dany neuron jest aktywny
     states(:,:) = probabilities > rand(num_examples, num_hidden + 1, 'uniform')
-    hidden_states(:,1) = []
+    states(:,1) = []
 
-    disp("Hidden states:", states)
+    disp('Hidden states:', states)
+
+endfunction
+
+// Testowanie sieci neuronowej w celu znalezienia widocznych neuronów
+// Funkcja musi być użyta po wytrenowaniu algorytmu
+function states = findVisible(hidden_states, num_visible, weights)
+
+    //Pozyskanie ilości wierszy z macierzy testowej
+    [num_examples, n2] = size(hidden_states)
+
+    //Zdefiniowanie macierzy widocznych neurnów, która posiada tyle wierszy ile macierz wejściowa, a tyle kolumn ile liczba widocznych cech neuronów + wektor biasów
+    states = ones(num_examples, num_visible + 1)
+
+    //Wprowadzenie wartości biasów do danych testowych w celu poprawnej operacji mnożenia macieżowago z transponowaną macierzą wag
+    hidden_states=[ones(num_examples, 1) hidden_states]
+
+    //Obliczenie aktywacji widocznych neuronów
+    activations = hidden_states * weights'
+
+    //Obliczenie prawdopodobieństwa aktywacji przez funkcję sigmoid
+    probabilities = sigm(activations)
+
+    //Binarne obliczenie wartości widocznych neuronów zgodnie z prawdopodobieństwem sigmoid
+    states(:,:) = probabilities > rand(num_examples, num_visible + 1, 'uniform')
+    states(:,1)=[]
+
+    //Poprawa wartości biasów do liczby 1
+    states(:,1) = 1
+    disp('Visible states:', states)
 
 endfunction
 
@@ -155,3 +184,17 @@ end
 disp(error_)
 disp(weights)
 plot(x,y)
+
+// Dane do przetestowania
+user =[
+    0,0,0,1,1,0;
+    0,0,0,1,1,0;
+    0,0,0,1,1,0;
+    0,0,0,1,1,0
+    ]
+
+// Stany ukrytych neuronów
+hidden_states = findHidden(user, num_hidden, weights)
+
+// Stany widocznych neuronów
+findVisible(hidden_states, num_visible, weights)
