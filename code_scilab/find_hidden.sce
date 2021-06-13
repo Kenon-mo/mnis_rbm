@@ -1,7 +1,8 @@
 //Testowanie sieci neuronowej w celu znalezienia ukrytych neuronów
 //Algorytm działa tylko z wytrenowaną macierzą wag
 user =[0,0,0,1,1,0;0,0,0,1,1,0;0,0,0,1,1,0;0,0,0,1,1,0]
-//user =[1,1,1,1,1,1;0,0,0,1,1,1;1,0,1,0,1,0;0,0,0,0,0,0]
+
+//Pozyskanie ilości wierszy z macierzy testowej
 [num_examples_user, n2] = size(user)
 
 //Zdefiniowanie macierzy ukrytych neurnów, która posiada tyle wierszy ile macierz wejściowa, a tyle kolumn ile liczba ukrytych cech neuronów + wektor biasów
@@ -12,6 +13,7 @@ user=[ones(num_examples_user,1) user]
 
 //Obliczenie aktywacji ukrytych neuronów
 hidden_activations = user * weights
+
 //Obliczenie prawdopodobieństwa aktywacji przez funkcję sigmoid
 hidden_probs = sigm(hidden_activations)
 
