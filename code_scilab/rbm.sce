@@ -7,7 +7,7 @@ function sigmoid = sigm(x)
     sigmoid=1.0 ./ (1.0 + exp(-x))
 endfunction
 
-// Funckja inicjalizująca macierz wag
+// Funkcja inicjalizująca macierz wag
 function weights = weightsInit(num_hidden, num_visible)
 
         // Próg dolny
@@ -26,6 +26,35 @@ function weights = weightsInit(num_hidden, num_visible)
         weights(:, 1) = 0
         weights(1, :) = 0
         disp(weights)
+
+endfunction
+
+// Funkcja znajdująca ukryte neurony
+// Do funkcji przekazywana jest macierz z danymi użytkownika które chcemy przetestować
+// Funkcja musi być użyta po wytrenowaniu algorytmu
+function states = findHidden(user_input, num_hidden, weights)
+
+    // Określenie ilości danych do przetestowania, które są uporządkowane wierszowo
+    [num_examples, n2] = size(user_input)
+
+    // Inicjalizacja macierzy na stany neuronów
+    states = ones(num_examples, num_hidden + 1)
+
+    // Dodawanie bias'u do pierwszej kolumny danych
+    user_input = [ones(num_examples, 1) user_input]
+
+    // Wyliczenie aktywacji
+    activations = user_input * weights
+
+    // Wyliczenie prawdopodobieństwa aktywacji
+    probabilities = sigm(activations)
+
+    // Decyzja czy dany neuron jest aktywny
+    states(:,:) = probabilities > rand(num_examples, num_hidden + 1, 'uniform')
+    hidden_states(:,1) = []
+
+    disp("Hidden states:", states)
+
 endfunction
 
 /////////////////////////////////////////////////
