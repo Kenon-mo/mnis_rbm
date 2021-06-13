@@ -1,0 +1,11 @@
+\section{Trenowanie sieci neuronowej}
+    \paragraph{}
+        Trenowanie sieci neuronowej jest elementem, który ma na celu dopasowanie wag do odpowiednich danych wejściowych.
+        Obliczenia dokonują się na podstawie kontrastowej rozbieżności (ang. \textit{Constrastive divergance}), która ma na celu
+        dopasowanie wag przez różnice rzeczywistego wyniku działania algorytmu z "wirtualnym" wynikiem wygenerowanym na
+        podstawie danych wyuczonych przez algorytm. Całość jest ograniczana przez tzw. współczynnik uczenia, który mówi
+        nam o ile algorytm powienien zmniejszyć różnicę otrzymaną z CD.
+    \paragraph{}
+        Operacje trenowania macierzy najwygodniej przedstawić na macierzach. Za pomocą operacji transpozycji czy mnożenia
+        macierzowego można zaoszczdzić sporo czasu na opracowywanie algorytmu RBM. Do treningu będzie potrzebna funkcja sigmoid,
+        która przyjmuje wartości od 0 do 1,  a zmiana pomiędzy nimi następuje dla argumentów bliskich zeru.
