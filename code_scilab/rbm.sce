@@ -25,7 +25,7 @@ function weights = weightsInit(num_hidden, num_visible)
         // Wypełnianie zerami pierwszego wiersza i kolumny
         weights(:, 1) = 0
         weights(1, :) = 0
-        disp(weights)
+        disp('Weights on init:', weights)
 
 endfunction
 
@@ -181,8 +181,8 @@ for epoch=1:max_epochs
 end
 
 // Wyświetl błąd i wykres
-disp(error_)
-disp(weights)
+disp('Error:', error_)
+disp('Weights after:', weights)
 plot(x,y)
 
 // Dane do przetestowania
