@@ -28,7 +28,7 @@ function namesDisplay(data_input)
     for i = 1:size(data_input, "r")
         for j = 1:size(data_input, "c")
             if data_input(i, j) == 1 then
-                printf("%s \t", names(j))
+                printf("%s \n", names(j))
             end
         end
         printf("\n")
