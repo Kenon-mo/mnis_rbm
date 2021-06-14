@@ -225,8 +225,8 @@ hidden_states = findHidden(user, num_hidden, weights)
 // Stany widocznych neuronów
 visible_states = findVisible(hidden_states, num_visible, weights)
 
-disp("Użytkownik lubi: ")
+printf("Użytkownik lubi: \n \n")
 namesDisplay(user)
 
-disp("Użytkownikowi mogą spodobać się: ")
+printf("Użytkownikowi mogą spodobać się: \n \n")
 namesDisplay(visible_states)
