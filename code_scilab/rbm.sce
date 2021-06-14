@@ -10,10 +10,20 @@ endfunction
 // Funkcja przypisująca faktyczne nazwy do danych
 function namesDisplay(data_input)
 
-    // Nazwy książek
-    names = [
-        'Hobbit', 'Władca Pierścieni', 'Harry Potter', 'Song of Ice and Fire', 'Zmierzch', 'Zwiadowcy'
+    tolkien_books = [
+        'Hobbit'    , 'Władca Pierścieni'   , 'Silmarillion'    , 'Historia Śródziemia' , 'Przygody Toma Bombadila'
     ]
+    gmartin_books = [
+        'Gra o Tron', 'Starcie Królów'      , 'Nawałnica mieczy', 'Uczta dla wron'      , 'Taniec ze smokami'
+    ]
+    sapkowski_books = [
+        'Krew elfów', 'Czas pogardy'        , 'Chrzest ognia'   , 'Wieża Jaskółki'      , 'Pani Jeziora'
+    ]
+    rowling_books = [
+        'HP: Kamień filozoficzny', 'HP: Komnata tajemnic', 'HP: Więzień azkabanu', 'HP: Czara ognia', 'HP: Książę półkrwi', 'HP: Insygnia śmierci'
+    ]
+    // Nazwy książek
+    names = [tolkien_books gmartin_books sapkowski_books rowling_books]
 
     for i = 1:size(data_input, "r")
         for j = 1:size(data_input, "c")
@@ -110,19 +120,19 @@ endfunction
 /////////////////////////////////////////////////
 
 // Liczba widocznych węzłów
-num_visible = 6
+num_visible = 21
 
 // Liczba ukrytych węzłów
-num_hidden = 2
+num_hidden = 4
 
 // Macierz trenująca
 training_data = [
-                    1,1,1,0,0,0;
-                    1,0,1,0,0,0;
-                    1,1,1,0,0,0;
-                    0,0,1,1,1,0;
-                    0,0,1,1,0,0;
-                    0,0,1,1,1,0
+                    1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0;
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1;
+                    1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0;
+                    1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0;
+                    0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0
                 ]
 
 // Maksymalna ilość iteracji
@@ -206,7 +216,7 @@ plot(x,y)
 
 // Dane do przetestowania
 user = [
-    0,0,0,1,1,0
+    1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0
     ]
 
 // Stany ukrytych neuronów
