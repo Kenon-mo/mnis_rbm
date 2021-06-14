@@ -7,6 +7,25 @@ function sigmoid = sigm(x)
     sigmoid=1.0 ./ (1.0 + exp(-x))
 endfunction
 
+// Funkcja przypisująca faktyczne nazwy do danych
+function namesDisplay(data_input)
+
+    // Nazwy książek
+    names = [
+        'Hobbit', 'Władca Pierścieni', 'Harry Potter', 'Song of Ice and Fire', 'Zmierzch', 'Zwiadowcy'
+    ]
+
+    for i = 1:size(data_input, "r")
+        for j = 1:size(data_input, "c")
+            if data_input(i, j) == 1 then
+                printf("%s \t", names(j))
+            end
+        end
+        printf("\n")
+    end
+
+endfunction
+
 // Funkcja inicjalizująca macierz wag
 function weights = weightsInit(num_hidden, num_visible)
 
@@ -186,10 +205,7 @@ disp('Weights after:', weights)
 plot(x,y)
 
 // Dane do przetestowania
-user =[
-    0,0,0,1,1,0;
-    0,0,0,1,1,0;
-    0,0,0,1,1,0;
+user = [
     0,0,0,1,1,0
     ]
 
@@ -197,4 +213,10 @@ user =[
 hidden_states = findHidden(user, num_hidden, weights)
 
 // Stany widocznych neuronów
-findVisible(hidden_states, num_visible, weights)
+visible_states = findVisible(hidden_states, num_visible, weights)
+
+disp("Użytkownik lubi: ")
+namesDisplay(user)
+
+disp("Użytkownikowi mogą spodobać się: ")
+namesDisplay(visible_states)
