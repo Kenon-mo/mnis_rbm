@@ -1,17 +1,17 @@
 \section{Wyniki}
     Ze względu na losowość początkowych wag, sieć może zwracać inne wyniki pomimo
-    tych samych danych treningowych. Znacząco może różnić się także błąd.
+    tych samych danych treningowych. Znacząco może różnić się także błąd. Należy
+    zaznaczyć, że błąd nie ma dużego związku z wynikami które otrzymuje użytkownik
+    tzn. błąd może być bardzo podobny dla dwóch przypadków ale ich wyniki będą różne.
 
     \subsection{Przypadek 1}
         Najczęściej występujący przypadek, przypisuje wszystkie książki danego autora
         pod warunkiem, że użytkownik polubił przynajmniej jedną:
 
-        \paragraph{}
-            Średni błąd wyniósł: $2.7799$. Wykres błędu wygląda następująco:
-
             \begin{figure}[H]
                 \centering
 
+                Średni błąd wyniósł: $2.7799$. Wykres błędu wygląda następująco:
                 \includegraphics[width=\textwidth]{img/wykres_1.png}
 
                 \caption{Wykres błędu w 1 przypadku}
@@ -49,12 +49,10 @@
         widzimy że sieć nie powiązała do końca książek z autorami, jeden węzeł ma pewną
         nieznaną dla nas zależność która zmienia znacząco wynik.
 
-        \paragraph{}
-            Średni błąd wyniósł: $3.0233$. Wykres błędu wygląda następująco:
-
             \begin{figure}[H]
                 \centering
 
+                Średni błąd wyniósł: $3.0233$. Wykres błędu wygląda następująco:
                 \includegraphics[width=\textwidth]{img/wykres_2.png}
 
                 \caption{Wykres błędu w 2 przypadku}
