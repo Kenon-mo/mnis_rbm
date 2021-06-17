@@ -4,8 +4,8 @@
 	Użytkownik podaje swoje preferencje w sposób binarny - książka podoba mu się lub nie. 
 	Przed tym następuje proces trenowania maszyny oparty na preferencjach innych użytkowników biblioteki. 
 	Wynik jest następie przepuszczny w dodatnią fazę \textit{kontrastowej rozbieżności},
-	aby znaleść współne cechy pozycji które podał użytkownik (obliczenie ukrytych neuronów),
-	następie przepuszczny w dodatnią fazę \textit{kontrastowej rozbieżności}, 
+	aby znaleść współne cechy pozycji które podał użytkownik (obliczenie ukrytych neuronów)
+	Następnie dane przepuszczamy przez ujemną fazę \textit{kontrastowej rozbieżności}, 
 	aby znaleść inne pozycje które mogą spodobać się użytkownikowi.
     \paragraph{}
-	Obracowana maszyna Boltzmanna zawiera 24 widoczne neurony oraz 4 ukryte, które oznaczają cechy wspólne cechy ulubionych książek, które wybrał 				użytkownik
+	Obracowana maszyna Boltzmanna zawiera 21 widocznych neuronów, które oznaczają książkowe preferencje użytkownika oraz 4 ukryte, które oznaczają  4 			różnych autorów ksiązek. Spodziewamy się w takim razie wyników, które będą zbliżone do preferencji użytkownika na podstawie autorów książek, które mu się 		podobją. Nie jest to jednak reguła i jak pokazuje praktyka nie zawsze dostaniemy perfekcyjne wyniki.
