@@ -214,6 +214,10 @@ disp('Error:', error_)
 disp('Weights after:', weights)
 plot(x,y)
 
+// Opisy osi
+xlabel ("Iteracje", "FontSize", 3)
+ylabel ("Błąd", "FontSize", 3)
+
 // Dane do przetestowania
 user = [
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
